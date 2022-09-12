@@ -1,33 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import MainMovieSelection from './pages/MainMovieSelection/MainMovieSelection'
+import PlayMovie from './pages/PlayMovie/PlayMovie'
+import Profile from './pages/Profile/Profile'
+import Metrics from './pages/Metrics/Metrics'
+import Login from './pages/Login/Login'
+import Header from './components/Header/Header'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" rel="noopener">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" rel="noopener">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/main" element={<MainMovieSelection />} />
+        <Route path="/play" element={<PlayMovie />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/metrics" element={<Metrics />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
