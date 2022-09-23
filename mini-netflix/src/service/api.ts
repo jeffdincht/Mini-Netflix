@@ -1,0 +1,33 @@
+import { IMovie } from '../interfaces/IMovie'
+
+const {API_URL, API_KEY} = process.env
+
+export async function fetchMovies (genre: number) {
+  const response = await fetch(`${API_URL}discover/movie?with_genres=${genre}&api_key=${API_KEY}`)
+  const { results } = await response.json()
+  return results
+}
+
+export async function getSections (){
+  return [
+    { title: 'Adventure', movies: await fetchMovies(12) },
+    { title: 'Animation', movies: await fetchMovies(16) },
+    { title: 'Drama', movies: await fetchMovies(18) },
+    { title: 'Fantasy', movies: await fetchMovies(14) },
+    { title: 'Romance', movies: await fetchMovies(10749) },
+    { title: 'Thriller', movies: await fetchMovies(53) }
+  ]
+}
+
+export async function getMovieById (id: number){
+  const response = await fetch(`${API_URL}/movie/${id}?api_key=${API_KEY}`)
+  return await response.json()
+}
+
+export async function getWatchedMovies (ids: number[]):Promise<IMovie[] | any>{
+  const watchedList = []
+  for (const id of ids) {
+    watchedList.push(getMovieById(id))
+  }
+  return watchedList
+}

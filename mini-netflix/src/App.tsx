@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/main" element={<MainMovieSelection />} />
-        <Route path="/play" element={<PlayMovie />} />
+        <Route path="/play/:id" element={<PlayMovie />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/metrics" element={<Metrics />} />
       </Routes>
