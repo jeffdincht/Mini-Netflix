@@ -17,6 +17,10 @@ All the movies you "watch" will have its data stored in your browser, so when yo
 
 # Running the Project:
 
+You can access the project with this site: https://mini-netflix-jbbc.vercel.app/
+
+Alternatively you can build with NPM:
+
 download the project and on its folder open a terminal.
 
 run `npm run dev`
