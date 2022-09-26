@@ -1,1 +1,24 @@
 # Mini-Netflix
+
+This Project was bootstrapped with Vite.
+
+# Description 
+
+This project is a Netflix Clone.
+
+You can:
+
+- Log in and Log out
+- See the movie list
+- "Watch" movies
+- Navigate through the pages (Login, Movie Selection, Player, User Profile and Metrics)
+
+All the movies you "watch" will have its data stored in your browser, so when you log in with another account you can see the whole site metrics on its page.
+
+# Running the Project:
+
+download the project and on its folder open a terminal.
+
+run `npm run dev`
+
+The project will open in - http://localhost:5173/

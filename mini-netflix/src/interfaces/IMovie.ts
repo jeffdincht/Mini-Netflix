@@ -1,6 +1,7 @@
 
 export interface IMovie {
   genres: IGenre[]
+  backdrop_path:string
   id: number
   name: string
   original_name: string
