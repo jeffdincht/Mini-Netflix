@@ -22,3 +22,22 @@ download the project and on its folder open a terminal.
 run `npm run dev`
 
 The project will open in - http://localhost:5173/
+
+# Credentials:
+
+For you to use the project, login and do stuff you'll need a credential.
+Here are the 3 users:
+
+User: jeff
+- email: jeff@jeff.com
+- password: 123
+
+User: admin
+- email: admin@admin.com
+- password: admin
+
+User: american
+- email: american@american.com
+- password: american
+
+
