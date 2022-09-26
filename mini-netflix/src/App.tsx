@@ -13,11 +13,39 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path='/' element={<RequireLogin><MainMovieSelection /></RequireLogin>} />
-        <Route path='/play/:id' element={<RequireLogin><PlayMovie /></RequireLogin>} />
-        <Route path='/profile' element={<RequireLogin><Profile /></RequireLogin>} />
-        <Route path='/metrics' element={<RequireLogin><Metrics /></RequireLogin>} />
-        <Route path='/login' element={<Login />} />
+        <Route
+          path="/"
+          element={
+            <RequireLogin>
+              <MainMovieSelection />
+            </RequireLogin>
+          }
+        />
+        <Route
+          path="/play/:id"
+          element={
+            <RequireLogin>
+              <PlayMovie />
+            </RequireLogin>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <RequireLogin>
+              <Profile />
+            </RequireLogin>
+          }
+        />
+        <Route
+          path="/metrics"
+          element={
+            <RequireLogin>
+              <Metrics />
+            </RequireLogin>
+          }
+        />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   )

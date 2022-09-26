@@ -11,15 +11,14 @@ import { useLogin } from '../../context/LoginProvider'
 
 function MovieList() {
   const { getSectionList } = useMovie()
-  const { updateUserWatched} = useStorage()
+  const { updateUserWatched } = useStorage()
   const { user } = useLogin()
   const [sections, setSections] = useState<ISection[]>([])
 
   useEffect(() => {
-    getSectionList()
-      .then(sections => {
-        setSections(sections)
-      })
+    getSectionList().then((sections) => {
+      setSections(sections)
+    })
   }, [])
 
   function handleClick(user: IUser, movie: IMovie) {
@@ -29,21 +28,29 @@ function MovieList() {
   return (
     <MovieListContainer>
       <div>
-        {user && sections.map(section =>
-          <div className={'section'} key={section.id}>
-            <h1>{section.title}</h1>
-            <div className={'list'}>
-              <ScrollContainer className={'movies'}>
-                {section.movies.map(movie =>
-                  <div className={'movie'} key={movie.id}>
-                    <Link to={`/play/${movie.id}`} onClick={() => handleClick(user, movie)}>
-                      <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} width={200} />
-                    </Link>
-                  </div>
-                )}
-              </ScrollContainer>
+        {user &&
+          sections.map((section) => (
+            <div className={'section'} key={section.id}>
+              <h1>{section.title}</h1>
+              <div className={'list'}>
+                <ScrollContainer className={'movies'}>
+                  {section.movies.map((movie) => (
+                    <div className={'movie'} key={movie.id}>
+                      <Link
+                        to={`/play/${movie.id}`}
+                        onClick={() => handleClick(user, movie)}
+                      >
+                        <img
+                          src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                          width={200}
+                        />
+                      </Link>
+                    </div>
+                  ))}
+                </ScrollContainer>
+              </div>
             </div>
-          </div>)}
+          ))}
       </div>
     </MovieListContainer>
   )

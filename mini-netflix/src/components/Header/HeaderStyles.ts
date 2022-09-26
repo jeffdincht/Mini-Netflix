@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const HeaderContainer = styled.div ` 
+export const HeaderContainer = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
@@ -8,8 +8,8 @@ export const HeaderContainer = styled.div `
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  
-  .profile{
+
+  .profile {
     margin-right: 1rem;
   }
 `

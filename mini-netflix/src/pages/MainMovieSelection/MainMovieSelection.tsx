@@ -1,11 +1,11 @@
 import MovieList from '../../components/MovieList/MovieList'
-import {MainMovieSelectionContainer} from './MainMovieSelectionStyles'
+import { MainMovieSelectionContainer } from './MainMovieSelectionStyles'
 import RandomBanner from '../../components/RandomBanner/RandomBanner'
 
 function MainMovieSelection() {
   return (
     <MainMovieSelectionContainer>
-      <RandomBanner/>
+      <RandomBanner />
       <MovieList />
     </MainMovieSelectionContainer>
   )

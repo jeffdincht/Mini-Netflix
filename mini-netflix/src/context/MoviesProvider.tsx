@@ -3,10 +3,9 @@ import { getMovieById, getSections, getWatchedMovies } from '../service/api'
 import { IMovie } from '../interfaces/IMovie'
 import { ISection } from '../interfaces/ISection'
 
-
 interface ContextType {
-  getSectionList: () => Promise<ISection[]>,
-  getById: (id: number) => Promise<IMovie>,
+  getSectionList: () => Promise<ISection[]>
+  getById: (id: number) => Promise<IMovie>
   getWatchedList: (ids: number[]) => Promise<IMovie[]>
 }
 
@@ -16,8 +15,8 @@ interface ProviderProps {
 
 const MoviesContext: Context<ContextType> = createContext<ContextType>({
   getSectionList: async () => [],
-  getById: async () => ({}) as IMovie,
-  getWatchedList: async () => []
+  getById: async () => await ({} as IMovie),
+  getWatchedList: async () => [],
 })
 
 export function MoviesProvider({ children }: ProviderProps) {
@@ -29,14 +28,15 @@ export function MoviesProvider({ children }: ProviderProps) {
     return await getMovieById(id)
   }
 
-  async function getWatchedList (ids: number[]): Promise<IMovie[]> {
+  async function getWatchedList(ids: number[]): Promise<IMovie[]> {
     return await getWatchedMovies(ids)
   }
 
   return (
     <MoviesContext.Provider value={{ getSectionList, getById, getWatchedList }}>
       {children}
-    </MoviesContext.Provider>)
+    </MoviesContext.Provider>
+  )
 }
 
 export function useMovie(): ContextType {

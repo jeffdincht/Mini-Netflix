@@ -26,13 +26,13 @@ const StorageContext: Context<ContextType> = createContext<ContextType>({
   getTypes: () => [],
   setTypes: () => {},
   updateUserWatched: () => {},
-  updateTypes: () => {}
+  updateTypes: () => {},
 })
 
-export function StorageProvider ({ children }: ProviderProps): JSX.Element {
-  function saveInitialData (): void {
+export function StorageProvider({ children }: ProviderProps): JSX.Element {
+  function saveInitialData(): void {
     if (!getUsers().length) {
-      const userList: IUser[] = database.map(user => {
+      const userList: IUser[] = database.map((user) => {
         const { password, ...values } = user
         return values
       })
@@ -44,25 +44,25 @@ export function StorageProvider ({ children }: ProviderProps): JSX.Element {
     }
   }
 
-  function getUsers (): IUser[] {
+  function getUsers(): IUser[] {
     return getData('users')
   }
 
-  function setUsers (users: IUser[]): void {
+  function setUsers(users: IUser[]): void {
     setData('users', users)
   }
 
-  function getTypes (): ITypes[] {
+  function getTypes(): ITypes[] {
     return getData('types')
   }
 
-  function setTypes (types: ITypes[]): void {
+  function setTypes(types: ITypes[]): void {
     setData('types', types)
   }
 
-  function updateUserWatched (user: IUser, movie: IMovie): void {
+  function updateUserWatched(user: IUser, movie: IMovie): void {
     const movieIndex = user.watchedList.findIndex(
-      element => element === movie.id
+      (element) => element === movie.id
     )
     if (movieIndex >= 0) {
       user.watchedList.splice(movieIndex, 1)
@@ -71,7 +71,7 @@ export function StorageProvider ({ children }: ProviderProps): JSX.Element {
     }
     user.watchedList.unshift(movie.id)
 
-    const updatedUsers = getUsers().map(element => {
+    const updatedUsers = getUsers().map((element) => {
       if (element.id === user.id) {
         user.watched += 1
         return user
@@ -81,13 +81,12 @@ export function StorageProvider ({ children }: ProviderProps): JSX.Element {
     setUsers(updatedUsers)
   }
 
-
-  function updateTypes (movie: IMovie): void {
+  function updateTypes(movie: IMovie): void {
     const genres = movie.genres
     const types = getTypes()
 
     for (const genre of genres) {
-      const index = types.findIndex(element => element.id === genre.id)
+      const index = types.findIndex((element) => element.id === genre.id)
       const type = types[index]
       type.count += 1
       types.splice(index, 1, type)
@@ -105,7 +104,7 @@ export function StorageProvider ({ children }: ProviderProps): JSX.Element {
         getTypes,
         setTypes,
         updateUserWatched,
-        updateTypes
+        updateTypes,
       }}
     >
       {children}
@@ -113,6 +112,6 @@ export function StorageProvider ({ children }: ProviderProps): JSX.Element {
   )
 }
 
-export function useStorage (): ContextType {
+export function useStorage(): ContextType {
   return useContext(StorageContext)
 }

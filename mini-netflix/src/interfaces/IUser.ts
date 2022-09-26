@@ -5,6 +5,6 @@ export interface IUser {
   password?: string
   country: string
   watched: number
-  watchedList: number[],
+  watchedList: number[]
   avatar: string
 }

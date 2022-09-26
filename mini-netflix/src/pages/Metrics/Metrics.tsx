@@ -9,12 +9,8 @@ function Metrics() {
   const [users, setUsers] = useState<IUser[]>([])
   const [types, setTypes] = useState<ITypes[]>([])
 
-
   useEffect(() => {
-    setUsers(
-      getUsers()
-        .sort((a, b) => b.watched - a.watched)
-    )
+    setUsers(getUsers().sort((a, b) => b.watched - a.watched))
     setTypes(
       getTypes()
         .sort((a, b) => b.count - a.count)
@@ -22,32 +18,38 @@ function Metrics() {
     )
   }, [])
 
-
   return (
     <MetricsContainer>
       <div>
         <h1>Users</h1>
-        {users.map((user) =>
+        {users.map((user) => (
           <div className={'users'} key={user.id}>
             <div>
               <img src={user.avatar} width={80} />
             </div>
             <div>
               <strong>{user.name}</strong>
-              <p>Country: <strong>{user.country}</strong></p>
-              <p>Watched: <strong>{user.watched}</strong></p>
+              <p>
+                Country: <strong>{user.country}</strong>
+              </p>
+              <p>
+                Watched: <strong>{user.watched}</strong>
+              </p>
             </div>
           </div>
-        )}
-        <hr/>
+        ))}
+        <hr />
       </div>
 
       <div className={'genres'}>
         <h1>Genres</h1>
-        {types.map((types) =>
+        {types.map((types) => (
           <div key={types.id}>
-            <p><strong>{types.name}</strong>: {types.count}</p>
-          </div>)}
+            <p>
+              <strong>{types.name}</strong>: {types.count}
+            </p>
+          </div>
+        ))}
       </div>
     </MetricsContainer>
   )

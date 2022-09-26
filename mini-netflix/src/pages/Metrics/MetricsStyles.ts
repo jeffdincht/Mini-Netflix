@@ -4,18 +4,17 @@ export const MetricsContainer = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-around;
-  
-  .users{
+
+  .users {
     margin-top: 50px;
     display: flex;
     align-items: center;
     gap: 10px;
   }
-  
-  .genres{
+
+  .genres {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  
-  `
+`

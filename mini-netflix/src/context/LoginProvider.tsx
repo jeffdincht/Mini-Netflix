@@ -4,7 +4,7 @@ import { getID, removeData, setData } from '../service/localStorage'
 import { findUserById, userLogin } from '../service/authentication'
 
 interface ContextType {
-  user: IUser | null,
+  user: IUser | null
   logIn: (email: string, password: string) => boolean
   logOut: () => boolean
 }
@@ -16,7 +16,7 @@ interface ProviderProps {
 const LoginContext = createContext<ContextType>({
   user: {} as IUser,
   logIn: () => false,
-  logOut: () => false
+  logOut: () => false,
 })
 
 export function LoginProvider({ children }: ProviderProps) {
@@ -51,7 +51,6 @@ export function LoginProvider({ children }: ProviderProps) {
       {children}
     </LoginContext.Provider>
   )
-
 }
 
 export function useLogin(): ContextType {

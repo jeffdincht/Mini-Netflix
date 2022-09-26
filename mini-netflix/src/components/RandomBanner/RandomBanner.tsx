@@ -9,23 +9,21 @@ function RandomBanner(): JSX.Element {
 
   useEffect(() => {
     const value = Math.floor(Math.random() * 100) + 100
-    getById(Number(value))
-      .then((movie) => {
-          if (movie.id === value) {
-            setMovie(movie)
-          }
-        }
-      )
+    getById(Number(value)).then((movie) => {
+      if (movie.id === value) {
+        setMovie(movie)
+      }
+    })
   }, [])
 
   return (
     <RandomBannerContainer>
-      <img src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} className={'img'} />
+      <img
+        src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
+        className={'img'}
+      />
     </RandomBannerContainer>
-
   )
-
 }
-
 
 export default RandomBanner

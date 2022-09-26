@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-export const LoginContainer = styled.div `
-  
+export const LoginContainer = styled.div`
   padding: 10px;
   width: 350px;
   height: 400px;
@@ -9,16 +8,16 @@ export const LoginContainer = styled.div `
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-  .form{
+
+  .form {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
     width: 300px;
   }
-  
-  input{
+
+  input {
     border: none;
     width: 300px;
     height: 30px;
@@ -27,10 +26,8 @@ export const LoginContainer = styled.div `
     padding: 10px;
     font-size: 17px;
   }
-  
-  button{
+
+  button {
     width: 200px;
   }
-  
-  
 `

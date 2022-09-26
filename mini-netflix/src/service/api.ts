@@ -3,13 +3,17 @@ import { IMovie } from '../interfaces/IMovie'
 const { API_URL, API_KEY } = process.env
 
 export async function fetchMovies(genre: number) {
-  const response = await fetch(`${API_URL}discover/movie?with_genres=${genre}&api_key=${API_KEY}`)
+  const response = await fetch(
+    `${API_URL}discover/movie?with_genres=${genre}&api_key=${API_KEY}`
+  )
   const { results } = await response.json()
   return results
 }
 
 export async function fetchTrending() {
-  const response = await fetch(`${API_URL}trending/movie/week?api_key=${API_KEY}`)
+  const response = await fetch(
+    `${API_URL}trending/movie/week?api_key=${API_KEY}`
+  )
   const { results } = await response.json()
   return results
 }
@@ -22,7 +26,7 @@ export async function getSections() {
     { id: 3, title: 'Drama', movies: await fetchMovies(18) },
     { id: 4, title: 'Fantasy', movies: await fetchMovies(14) },
     { id: 5, title: 'Romance', movies: await fetchMovies(10749) },
-    { id: 6, title: 'Thriller', movies: await fetchMovies(53) }
+    { id: 6, title: 'Thriller', movies: await fetchMovies(53) },
   ]
 }
 

@@ -25,6 +25,4 @@ export const ProfileContainer = styled.div`
       background: #cb0000;
     }
   }
-
-
 `

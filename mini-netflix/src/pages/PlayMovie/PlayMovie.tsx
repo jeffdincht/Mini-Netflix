@@ -4,7 +4,7 @@ import { IMovie } from '../../interfaces/IMovie'
 import { useMovie } from '../../context/MoviesProvider'
 import { useLogin } from '../../context/LoginProvider'
 import { useStorage } from '../../context/StorageProvider'
-import {PlayMovieContainer} from './PlayMovieStyles'
+import { PlayMovieContainer } from './PlayMovieStyles'
 
 function PlayMovie() {
   const { id } = useParams()
@@ -15,19 +15,19 @@ function PlayMovie() {
 
   useEffect(() => {
     if (id && user) {
-      getById(Number(id))
-        .then(movie => {
-            setMovie(movie)
-            updateTypes(movie)
-          }
-        )
+      getById(Number(id)).then((movie) => {
+        setMovie(movie)
+        updateTypes(movie)
+      })
     }
-
   }, [])
 
   return (
     <PlayMovieContainer>
-      <img src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} className={'img'}/>
+      <img
+        src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
+        className={'img'}
+      />
     </PlayMovieContainer>
   )
 }

@@ -5,7 +5,7 @@ interface Props {
   children: JSX.Element
 }
 
-export function RequireLogin ({ children }: Props){
+export function RequireLogin({ children }: Props) {
   const authentication = useLogin()
 
   if (!authentication.user) {
